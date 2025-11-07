@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-12">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Category ID</th>
+          <th>Category Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories">
+          <td>{{ category.categoryId }}</td>
+          <td>{{ category.categoryName }}</td>
+          <td>
+            <button class="btn btn-sm btn-primary" >Edit</button>
+            <button class="btn btn-sm btn-danger mx-2">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

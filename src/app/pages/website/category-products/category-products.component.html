@@ -1,0 +1,43 @@
+<div class="container-fluid py-5">
+  <div class="container py-5">
+    <div class="text-center mx-auto mb-5">
+      <h1 class="display-4">Shopping</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+        explicabo quisquam reiciendis alias
+      </p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6 col-xl-4 mb-3" *ngFor="let product of productList">
+        <div class="p-4 rounded bg-light">
+          <div class="row align-items-center">
+            <div class="col-6">
+              <img
+                [src]="product.productImageUrl"
+                [alt]="product.productShortName"
+                class="img-fluid rounded-circle"
+                style="height: 225px; object-fit: cover; width: 225px"
+              />
+            </div>
+            <div class="col-6">
+              <a href="" class="h5">{{ product.productShortName }}</a>
+              <div class="d-flex my-3">
+                <i class="fas fa-star text-primary"></i>
+                <i class="fas fa-star text-primary"></i>
+                <i class="fas fa-star text-primary"></i>
+                <i class="fas fa-star text-primary"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4 class="mb-3">${{ product.productPrice }}</h4>
+              <a
+                class="btn border border-secondary rounded rounded-pill px-3 text-primary"
+              >
+                <i class="fa fa-shopping-bag me-2 text-primary">Add to cart</i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
