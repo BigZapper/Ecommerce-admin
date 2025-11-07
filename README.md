@@ -2,8 +2,8 @@
 
 http://localhost:4200/admin/
 
-username: admin
+username: admin - 
 password: admin
 
-#Landing page
+# Landing page
 http://localhost:4200
