@@ -5,22 +5,40 @@
         <div class="row">
           <div class="col-6">Product List</div>
           <div class="col-6 text-right">
-            <button class="btn btn-sm btn-success" (click)="onClickNewButton()">
-              New
-            </button>
+            <app-button
+              variant="success"
+              icon="fa fa-plus"
+              (click)="onClickNewButton()"
+              >Add New Product</app-button
+            >
           </div>
         </div>
       </div>
       <div class="card-body">
         <div class="row">
-          <div class="col-3" *ngFor="let product of productList, let i = index">
+          <div class="col-3" *ngFor="let product of productList; let i = index">
             <div class="card">
-              <img [src]="product.productImageUrl" alt="card-img-top" class="card-img-top" />
+              <img
+                [src]="product.productImageUrl"
+                alt="card-img-top"
+                class="card-img-top"
+              />
               <div class="card-body">
-                <h4 class="card-title">{{product.productShortName}}</h4>
-                <p class="card-text">{{product.categoryName}}</p>
-                <button class="btn btn-primary" (click)="onEditButtonClick(product)">Edit</button>
-                <button class="btn btn-danger mx-2" (click)="onDelete(product)">Delete</button>
+                <h4 class="card-title">{{ product.productShortName }}</h4>
+                <p class="card-text">{{ product.categoryName }}</p>
+                <app-button
+                  variant="primary"
+                  icon="fa fa-edit"
+                  (click)="onEditButtonClick(product)"
+                  >Edit</app-button
+                >
+                <app-button
+                  variant="danger"
+                  icon="fa fa-trash"
+                  (click)="onDelete(product)"
+                  class="mx-2"
+                  >Delete</app-button
+                >
               </div>
             </div>
           </div>
@@ -32,11 +50,14 @@
     <div class="card">
       <div class="card-header bg-primary">
         <div class="row">
-          <div class="col-6">{{productObj.productId | appTitle}}</div>
+          <div class="col-6">{{ productObj.productId | appTitle }}</div>
           <div class="col-6 text-right">
-            <button class="btn btn-sm btn-danger" (click)="closeSidePanel()">
-              Close
-            </button>
+            <app-button
+              variant="danger"
+              icon="fa fa-times"
+              (click)="closeSidePanel()"
+              >Close</app-button
+            >
           </div>
         </div>
       </div>
@@ -44,22 +65,38 @@
         <div class="row">
           <div class="col-6">
             <label for="">SKU</label>
-            <input type="text" [(ngModel)]="productObj.productSku" class="form-control">
+            <input
+              type="text"
+              [(ngModel)]="productObj.productSku"
+              class="form-control"
+            />
           </div>
           <div class="col-6">
             <label for="">Product Name</label>
-            <input type="text" [(ngModel)]="productObj.productName" class="form-control">
+            <input
+              type="text"
+              [(ngModel)]="productObj.productName"
+              class="form-control"
+            />
           </div>
         </div>
 
         <div class="row">
           <div class="col-6">
             <label for="">Price</label>
-            <input type="text" [(ngModel)]="productObj.productPrice" class="form-control">
+            <input
+              type="text"
+              [(ngModel)]="productObj.productPrice"
+              class="form-control"
+            />
           </div>
           <div class="col-6">
             <label for="">Short Name</label>
-            <input type="text" [(ngModel)]="productObj.productShortName" class="form-control">
+            <input
+              type="text"
+              [(ngModel)]="productObj.productShortName"
+              class="form-control"
+            />
           </div>
         </div>
 
@@ -67,36 +104,67 @@
           <div class="col-6">
             <label for="">Category</label>
             <select [(ngModel)]="productObj.categoryId" class="form-select">
-              <option *ngFor="let cate of categoryList" [value]="cate.categoryId">{{cate.categoryName}}</option>
+              <option
+                *ngFor="let cate of categoryList"
+                [value]="cate.categoryId"
+              >
+                {{ cate.categoryName }}
+              </option>
             </select>
           </div>
           <div class="col-6">
             <label for="">Delivery Time Span</label>
-            <input type="text" [(ngModel)]="productObj.deliveryTimeSpan" class="form-control">
+            <input
+              type="text"
+              [(ngModel)]="productObj.deliveryTimeSpan"
+              class="form-control"
+            />
           </div>
         </div>
 
         <div class="row">
           <div class="col-12">
             <label for="">Image Url</label>
-            <input type="text" [(ngModel)]="productObj.productImageUrl" class="form-control">
+            <input
+              type="text"
+              [(ngModel)]="productObj.productImageUrl"
+              class="form-control"
+            />
           </div>
           <div class="col-12">
             <label for="">Description</label>
-            <textarea type="text" [(ngModel)]="productObj.productDescription" class="form-control"></textarea>
+            <textarea
+              type="text"
+              [(ngModel)]="productObj.productDescription"
+              class="form-control"
+            ></textarea>
           </div>
         </div>
 
         <div class="row pt-2">
           <div class="col-6 text-center">
-            <button class="btn btn-secondary">Reset</button>
+            <app-button variant="secondary" icon="fa fa-arrow-left"
+              >Reset</app-button
+            >
           </div>
           <div class="col-6 text-center">
-            <button class="btn btn-success" *ngIf="productObj.productId == 0" (click)="onSave()">Create Product</button>
-            <button class="btn btn-primary" *ngIf="productObj.productId != 0" (click)="onSave()">Update Product</button>
+            <app-button
+              variant="success"
+              icon="fa fa-save"
+              *ngIf="productObj.productId == 0"
+              (click)="onSave()"
+              >Create Product</app-button
+            >
+
+            <app-button
+              variant="primary"
+              icon="fa fa-save"
+              *ngIf="productObj.productId != 0"
+              (click)="onSave()"
+              >Update Product</app-button
+            >
           </div>
         </div>
-
       </div>
     </div>
   </div>

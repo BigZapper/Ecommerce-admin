@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product/product.service';
 import { CommonModule } from '@angular/common';
-import { FilterComponent, ProductFilter } from '../../../components/filter/filter.component';
+import { FilterComponent, ProductFilter } from '../../../shared/components/filter/filter.component';
 
 @Component({
   selector: 'app-products',
